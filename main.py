@@ -13,7 +13,7 @@ from Functions import *
 
 import ast
 # reading the data from the file
-with open(r'DATA.txt') as f:
+with open('DATA.txt') as f:
     file = f.read()
 
 
@@ -23,10 +23,11 @@ Rec = ast.literal_eval(file)
 
 def WriteDATA(Rec):
         # open file for writing
-    f = open(r"C:\Users\pc\Jupyter Notebook\PFE\ACPAPP\DATA.txt", "w")
+    f = open("DATA.txt", "w")
     f.truncate(0)
     # write file
     f.write(str(Rec))
+    print(str(Rec))
 
     # close file
     f.close()
@@ -60,6 +61,7 @@ def GAP1(Dt):
     global Rec
     TimeGap1 = int(Dt)
     Rec['TimeGap1'] = TimeGap1
+    print(Rec['TimeGap1'])
     WriteDATA(Rec)
 
 def GAP2(Dt):
@@ -231,6 +233,7 @@ class dat:
 
     def Datelist(self):
         self.options = Data['Date'].unique()
+        
 
 
 def DateCheck(Dt):
@@ -362,14 +365,11 @@ def SaveData():
     global Adj
     global min_Conducteur
     global Conducteur
-    os.makedirs(r'C:\Users\pc\Jupyter Notebook\PFE\ACPAPP', exist_ok=True)
-    Data.to_csv(r'C:\Users\pc\Jupyter Notebook\PFE\ACPAPP\Data.csv')
-    os.makedirs(r'C:\Users\pc\Jupyter Notebook\PFE\ACPAPP', exist_ok=True)
-    Selected_Data.to_csv(
-        r'C:\Users\pc\Jupyter Notebook\PFE\ACPAPP\Selected_Data.csv')
+    
+    Data.to_csv('Data.csv')
+    Selected_Data.to_csv('Selected_Data.csv')
     Rec['Nuit_par1'] = Nuit_par1
     Rec['Nuit_par2'] = Nuit_par2
-
 
     Rec['options'] = options
     Rec['Brigade'] = Brigade
