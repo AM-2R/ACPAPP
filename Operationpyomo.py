@@ -120,14 +120,14 @@ Selected_Data.head
 
 # %%
 
-
-book = pd.ExcelWriter(f'Conducteur{Date}-{Brigade}.xlsx', engine='xlsxwriter')
+filename = asksaveasfilename(initialfile=f'Conducteur{Date}-{Brigade}.xlsx', initialdir='/', title = 'Save File', filetypes=(('Excel File', '.xlsx'),('Text File','.txt'),('All Files','*.*')))
+book = pd.ExcelWriter(filename, engine='xlsxwriter')
 Selected_Data.to_excel(book, sheet_name='recaputulation ')
 
 for i in model.C:
     DATA=Selected_Data.loc[Selected_Data['Conducteur_ID'] == i]
     DATA.drop('Conducteur_ID', inplace=True, axis=1)
     DATA.to_excel(book, sheet_name='Conducteur '+str(i+1))
-
-book.save('%userprofile%\Documents')
+ 
+book.save()
 

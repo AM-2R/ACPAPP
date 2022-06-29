@@ -109,19 +109,21 @@ def ref():
         w['menu'].add_command(
             label=choice,
             command=tk._setit(el3andalib, choice))
+    print(choice)
 
 
-el3andalib.set('Date')  # default value
+el3andalib.set('Selectioner votre date ici')  # default value
 el3andalib.trace("w", ref)
 w = OptionMenu(root, el3andalib, *op)
 
 w.config(bg='white',
 
          font=('Segoe UI', 22),
-         highlightthickness=0,
-         #  highlightbackground="#707070",
-         #  highlightcolor='#707070',
-         borderwidth=1, width=40)
+         highlightthickness=1,
+         fg='#707070',
+         highlightbackground="#707070",
+         highlightcolor='#CDCBCB',
+         borderwidth=0, width=40)
 w.place(x=30, y=350)
 # achfa = StringVar()
 # input1 = Entry(root, highlightthickness=1,
